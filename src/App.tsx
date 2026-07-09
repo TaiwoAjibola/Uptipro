@@ -5,13 +5,14 @@ const VIDEO_URL =
   'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260530_042513_df96a13b-6155-4f6e-8b93-c9dee66fba08.mp4';
 const SENSITIVITY = 0.8;
 
-const NAV_LINKS = ['Labs', 'Studio', 'Openings', 'Shop'] as const;
+const NAV_LINKS = ['Services', 'Products', 'Case Studies', 'Contact'] as const;
 const WHITE_PILLS = [
-  'Pitch us an idea',
-  'Come work here',
-  'Send a brief hello',
-  'See how we operate',
+  'Build Something',
+  'View Products',
+  'See Our Work',
+  'How We Work',
 ] as const;
+const CONTACT_EMAIL = 'hello@uptipro.com';
 
 function CopyIcon() {
   return (
@@ -47,6 +48,28 @@ function CopyIcon() {
   );
 }
 
+function ScrollArrow() {
+  return (
+    <svg
+      width="14"
+      height="22"
+      viewBox="0 0 14 22"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="inline-block"
+    >
+      <path
+        d="M7 1 V 20 M2 15 L 7 20 L 12 15"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
 function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -59,7 +82,7 @@ function Navbar() {
             className="text-black text-[21px] sm:text-[26px] tracking-tight select-none"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Mainframe®
+            UPTIPRO
           </span>
           <span
             className="text-black text-[25px] sm:text-[30px] select-none"
@@ -75,7 +98,7 @@ function Navbar() {
             <span key={link} className="flex items-center">
               {i > 0 && <span className="text-black">,&nbsp;</span>}
               <a
-                href={`#${link.toLowerCase()}`}
+                href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
                 className="hover:opacity-60 transition-opacity"
               >
                 {link}
@@ -86,10 +109,11 @@ function Navbar() {
 
         {/* Desktop CTA */}
         <a
-          href="#contact"
-          className="hidden md:block text-black text-[23px] underline underline-offset-2 hover:opacity-60 transition-opacity"
+          href="#start"
+          className="hidden md:flex items-center text-black text-[23px] hover:opacity-60 transition-opacity no-underline"
         >
-          Get in touch
+          Start a Project
+          <span className="ml-2">→</span>
         </a>
 
         {/* Mobile hamburger */}
@@ -135,7 +159,7 @@ function Navbar() {
           {NAV_LINKS.map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase()}`}
+              href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
               onClick={() => setOpen(false)}
               className="text-black text-[32px] font-medium"
             >
@@ -143,11 +167,11 @@ function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="#start"
             onClick={() => setOpen(false)}
             className="text-black text-[32px] font-medium underline underline-offset-2"
           >
-            Get in touch
+            Start a Project →
           </a>
         </div>
       </div>
@@ -164,7 +188,7 @@ function Hero() {
   const [copied, setCopied] = useState(false);
 
   const text =
-    'Glad you stopped in. Good taste tends to find us. Now, what are we building?';
+    "Every business eventually reaches a point where spreadsheets, disconnected tools, and manual processes begin to slow growth. That's where we come in. Uptipro designs and engineers intelligent software, AI-powered workflows, automation systems, and enterprise platforms that transform complex business ideas into products people actually use.";
   const { displayed, done } = useTypewriter(text, 38, 600);
 
   // Fade-in pills 400ms after mount.
@@ -223,7 +247,7 @@ function Hero() {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText('hello@mainframe.co');
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
@@ -242,6 +266,16 @@ function Hero() {
         className="fixed inset-0 w-full h-full z-0 object-cover"
         style={{ objectPosition: '70% center' }}
       />
+
+      {/* Video gradient overlay */}
+      <div
+        className="fixed inset-0 z-0 pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(to bottom, rgba(237,238,245,0.08) 0%, rgba(237,238,245,0) 50%, rgba(237,238,245,0.30) 100%)',
+        }}
+      />
+
       <div className="max-w-xl relative z-10">
         {/* Blurred intro label */}
         <div
@@ -254,9 +288,9 @@ function Hero() {
             filter: 'blur(4px)',
           }}
         >
-          Hey there, meet A.R.I.A,
+          Engineering software for businesses
           <br />
-          Mainframe's Adaptive Response Interface Agent
+          that refuse ordinary solutions.
         </div>
 
         {/* Typewriter text */}
@@ -277,6 +311,22 @@ function Hero() {
             />
           )}
         </p>
+
+        {/* Micro description */}
+        <div
+          className="mb-5 sm:mb-6 select-none"
+          style={{
+            fontSize: '10px',
+            letterSpacing: '0.18em',
+            opacity: 0.55,
+            fontWeight: 500,
+            color: '#000',
+            textTransform: 'uppercase',
+          }}
+        >
+          SOFTWARE ENGINEERING • AI SOLUTIONS • BUSINESS AUTOMATION • ENTERPRISE
+          PLATFORMS
+        </div>
 
         {/* Action pill buttons */}
         <div
@@ -301,9 +351,9 @@ function Hero() {
             className="inline-flex items-center justify-center gap-2 sm:gap-3 text-white bg-transparent border border-white rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap transition-colors duration-200 hover:bg-white hover:text-black"
           >
             <span>
-              Reach us:{' '}
+              Talk to our team: {''}
               <span className="underline underline-offset-1">
-                hello@mainframe.co
+                {CONTACT_EMAIL}
               </span>
             </span>
             <CopyIcon />
@@ -312,6 +362,39 @@ function Hero() {
             )}
           </button>
         </div>
+
+        {/* Trust indicator */}
+        <div
+          className="mt-5 sm:mt-6 select-none text-center"
+          style={{
+            fontSize: '10px',
+            letterSpacing: '0.08em',
+            opacity: 0.5,
+            color: '#000',
+          }}
+        >
+          Business Platforms • ERP Systems • AI Automation • Real Estate Tech •
+          Internal Tools
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div
+        className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-black"
+        style={{
+          bottom: '20px',
+          opacity: 0.5,
+        }}
+      >
+        <span className="text-[10px] tracking-[0.18em] uppercase">Scroll to explore</span>
+        <span
+          style={{
+            display: 'inline-block',
+            animation: 'scrollBounce 1.8s ease-in-out infinite',
+          }}
+        >
+          <ScrollArrow />
+        </span>
       </div>
     </section>
   );
