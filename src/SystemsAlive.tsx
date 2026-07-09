@@ -273,6 +273,7 @@ export default function SystemsAlive() {
   return (
     <section
       ref={sectionRef}
+      data-systems-alive
       className="relative bg-[#EDEEF5]"
       style={{ minHeight: '220vh' }}
     >
@@ -286,7 +287,7 @@ export default function SystemsAlive() {
       </div>
 
       <style>{`
-        * { cursor: none !important; }
+        [data-systems-alive] * { cursor: none !important; }
         ${WINDOWS.map((w, i) => `
           @keyframes windowFloat${i} {
             0% { transform: translateY(0); }

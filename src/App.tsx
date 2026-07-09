@@ -5,6 +5,9 @@ import BlueprintSection from './BlueprintSection';
 import SystemsAlive from './SystemsAlive';
 import EcosystemSection from './EcosystemSection';
 import SelectedWorkSection from './SelectedWorkSection';
+import PrinciplesSection from './PrinciplesSection';
+import FutureSection from './FutureSection';
+import FinalCTASection from './FinalCTASection';
 
 const VIDEO_URL =
   'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260530_042513_df96a13b-6155-4f6e-8b93-c9dee66fba08.mp4';
@@ -415,6 +418,9 @@ export default function App() {
       <SystemsAlive />
       <EcosystemSection />
       <SelectedWorkSection />
+      <PrinciplesSection />
+      <FutureSection />
+      <FinalCTASection />
     </div>
   );
 }
