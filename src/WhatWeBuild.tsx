@@ -17,16 +17,16 @@ type CardDef = {
  * Large hero cards (dashboard) stay almost still; tiny cards drift most.
  */
 const CARDS: CardDef[] = [
-  { id: 1, label: 'BuyOps Dashboard', w: 420, h: 270, top: '6%', left: '52%', rotate: -5, depth: 0.3 },
-  { id: 2, label: 'Invoice Builder', w: 320, h: 220, top: '40%', left: '70%', rotate: 4, depth: 0.55 },
-  { id: 3, label: 'ERP Modules', w: 340, h: 240, top: '2%', left: '20%', rotate: -2, depth: 0.4 },
-  { id: 4, label: 'AI Assistant', w: 260, h: 200, top: '70%', left: '58%', rotate: 6, depth: 0.7 },
-  { id: 5, label: 'Analytics', w: 280, h: 180, top: '30%', left: '40%', rotate: -2, depth: 0.65 },
-  { id: 6, label: 'Task Board', w: 300, h: 200, top: '56%', left: '20%', rotate: 4, depth: 0.75 },
-  { id: 7, label: 'Map', w: 240, h: 160, top: '78%', left: '36%', rotate: -3, depth: 0.85 },
-  { id: 8, label: 'Pipeline', w: 260, h: 180, top: '34%', left: '6%', rotate: 2, depth: 0.8 },
-  { id: 9, label: 'Notifications', w: 220, h: 200, top: '12%', left: '78%', rotate: -4, depth: 0.9 },
-  { id: 10, label: 'Admin Panel', w: 250, h: 170, top: '50%', left: '82%', rotate: 5, depth: 0.95 },
+  { id: 1, label: 'BuyOps Dashboard', w: 420, h: 270, top: '2%', left: '28%', rotate: -2, depth: 0.25 },
+  { id: 2, label: 'Invoice Builder', w: 320, h: 220, top: '42%', left: '40%', rotate: 3, depth: 0.4 },
+  { id: 3, label: 'ERP Modules', w: 340, h: 240, top: '2%', left: '0%', rotate: -1, depth: 0.3 },
+  { id: 4, label: 'AI Assistant', w: 260, h: 200, top: '58%', left: '48%', rotate: 4, depth: 0.5 },
+  { id: 5, label: 'Analytics', w: 280, h: 180, top: '1%', left: '68%', rotate: -3, depth: 0.4 },
+  { id: 6, label: 'Task Board', w: 300, h: 200, top: '54%', left: '4%', rotate: 2, depth: 0.45 },
+  { id: 7, label: 'Map', w: 240, h: 160, top: '62%', left: '70%', rotate: -2, depth: 0.55 },
+  { id: 8, label: 'Pipeline', w: 260, h: 180, top: '32%', left: '64%', rotate: 2, depth: 0.5 },
+  { id: 9, label: 'Notifications', w: 220, h: 200, top: '32%', left: '80%', rotate: -4, depth: 0.55 },
+  { id: 10, label: 'Admin Panel', w: 250, h: 170, top: '72%', left: '22%', rotate: 3, depth: 0.6 },
 ];
 
 const MAX_PARALLAX = 220; // px the fastest card travels over a full viewport pass
@@ -369,6 +369,7 @@ export default function WhatWeBuild() {
   const [hovered, setHovered] = useState<number | null>(null);
   const [visible, setVisible] = useState(false);
   const [revealedCount, setRevealedCount] = useState(0);
+  const [textStepped, setTextStepped] = useState(0);
 
   // Viewport fade-in
   useEffect(() => {
@@ -391,6 +392,17 @@ export default function WhatWeBuild() {
     for (let i = 1; i <= CARDS.length; i++) {
       timers.push(setTimeout(() => setRevealedCount(i), (i - 1) * 80));
     }
+    return () => timers.forEach(clearTimeout);
+  }, [visible]);
+
+  // Staggered text entrance: eyebrow(0), heading(120ms), paragraph(240ms), list items(360,440,520,600,680ms)
+  useEffect(() => {
+    if (!visible) return;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    const steps = [0, 120, 240, 360, 440, 520, 600, 680];
+    steps.forEach((delay, i) => {
+      timers.push(setTimeout(() => setTextStepped(i + 1), delay));
+    });
     return () => timers.forEach(clearTimeout);
   }, [visible]);
 
@@ -429,9 +441,9 @@ export default function WhatWeBuild() {
       // progress = -1 when section top at viewport bottom, +1 when section bottom at viewport top
       const progress = (vh / 2 - (rect.top + rect.height / 2)) / ((vh + rect.height) / 2);
 
-      // Text fade
-      if (textRef.current) {
-        const fade = Math.max(0, Math.min(1, 1 - (rect.top < 0 ? Math.abs(rect.top) / rect.height : 0) * 1.4));
+      // Text fade-out on scroll past
+      if (textRef.current && rect.top < 0) {
+        const fade = Math.max(0, Math.min(1, 1 - Math.abs(rect.top) / rect.height * 1.4));
         textRef.current.style.opacity = String(fade);
       }
 
@@ -489,7 +501,13 @@ export default function WhatWeBuild() {
           <div ref={textRef} className="md:order-1">
             <div
               className="uppercase font-semibold mb-7"
-              style={{ fontSize: '13px', letterSpacing: '.32em', opacity: 0.45 }}
+              style={{
+                fontSize: '13px',
+                letterSpacing: '.32em',
+                opacity: textStepped >= 1 ? 0.45 : 0,
+                transform: textStepped >= 1 ? 'translateX(0)' : 'translateX(-30px)',
+                transition: 'opacity 0.6s ease, transform 0.6s ease',
+              }}
             >
               WHAT WE BUILD
             </div>
@@ -501,6 +519,9 @@ export default function WhatWeBuild() {
                 fontWeight: 500,
                 maxWidth: '580px',
                 fontFamily: 'var(--font-heading)',
+                opacity: textStepped >= 2 ? 1 : 0,
+                transform: textStepped >= 2 ? 'translateX(0)' : 'translateX(-30px)',
+                transition: 'opacity 0.6s ease, transform 0.6s ease',
               }}
             >
               Not websites. Complete digital businesses.
@@ -508,7 +529,15 @@ export default function WhatWeBuild() {
 
             <p
               className="mt-9"
-              style={{ fontSize: '20px', lineHeight: 1.6, maxWidth: '540px', color: '#555' }}
+              style={{
+                fontSize: '20px',
+                lineHeight: 1.6,
+                maxWidth: '540px',
+                color: '#555',
+                opacity: textStepped >= 3 ? 1 : 0,
+                transform: textStepped >= 3 ? 'translateX(0)' : 'translateX(-30px)',
+                transition: 'opacity 0.6s ease, transform 0.6s ease',
+              }}
             >
               We design and engineer software that powers real businesses—from
               internal operations and AI automation to customer platforms used
@@ -516,11 +545,17 @@ export default function WhatWeBuild() {
             </p>
 
             <div className="mt-8 flex flex-col">
-              {MINI_LIST.map((item) => (
+              {MINI_LIST.map((item, idx) => (
                 <div
                   key={item}
                   className="flex items-center gap-[18px]"
-                  style={{ fontSize: '15px', padding: '12px 0' }}
+                  style={{
+                    fontSize: '15px',
+                    padding: '12px 0',
+                    opacity: textStepped >= 4 + idx ? 1 : 0,
+                    transform: textStepped >= 4 + idx ? 'translateY(0)' : 'translateY(12px)',
+                    transition: 'opacity 0.5s ease, transform 0.5s ease',
+                  }}
                 >
                   <span className="w-2 h-2 rounded-full bg-black opacity-20" />
                   <span className="text-black/80">{item}</span>
