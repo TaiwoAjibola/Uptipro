@@ -74,11 +74,11 @@ export default function FutureSection() {
             transform: `translateY(${(1 - clamp(1 - progress / 0.12, 0, 1)) * (-40)}px)`,
           }}
         >
-          <div className="text-[11px] uppercase tracking-[0.35em] text-black/40 mb-4">LOOKING FORWARD</div>
-          <div className="text-[clamp(32px,5vw,60px)] font-medium text-black leading-[0.95] max-w-[680px] mx-auto" style={{ fontFamily: 'var(--font-heading)' }}>
+          <div className="text-[12px] uppercase tracking-[0.35em] text-black/40 mb-4">LOOKING FORWARD</div>
+          <div className="text-[clamp(40px,6vw,80px)] font-medium text-black leading-[0.95] max-w-[680px] mx-auto" style={{ fontFamily: 'var(--font-heading)' }}>
             The future belongs to systems that think.
           </div>
-          <p className="mt-4 text-[14px] text-black/60 max-w-[500px] mx-auto">
+          <p className="mt-4 text-[17px] text-black/60 max-w-[500px] mx-auto">
             Tomorrow's software won't simply respond. It will anticipate. Adapt. Automate. Learn. Our goal isn't just to build applications — it's to build software that helps organizations make better decisions every day.
           </p>
         </div>
@@ -130,10 +130,10 @@ export default function FutureSection() {
             transition: 'transform 0.3s ease',
           }}
         >
-          <div className="text-[clamp(20px,3vw,40px)] font-medium text-black leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
+          <div className="text-[clamp(28px,4vw,44px)] font-medium text-black leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
             Ideas become systems.
           </div>
-          <p className="text-[13px] text-black/50 mt-2">Systems become solutions. Solutions become businesses.</p>
+          <p className="text-[17px] text-black/50 mt-2">Systems become solutions. Solutions become businesses.</p>
         </div>
       </div>
 

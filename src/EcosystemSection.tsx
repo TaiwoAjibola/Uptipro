@@ -324,11 +324,11 @@ export default function EcosystemSection() {
           {/* Slide 0 — Intro */}
           <div className="flex items-center justify-center" style={{ width: '100vw', height: '100vh' }}>
             <div style={{ maxWidth: 700, opacity: Math.min(1, (1 - introDone) * 2), transform: `translateY(${(1 - Math.min(1, (1 - introDone) * 2)) * 20}px)` }}>
-              <div className="text-[11px] uppercase tracking-[0.35em] text-black/40 mb-4">OUR ECOSYSTEM</div>
-              <div className="text-[clamp(36px,5vw,64px)] font-medium text-black leading-[1.05]" style={{ fontFamily: 'var(--font-heading)' }}>
+              <div className="text-[12px] uppercase tracking-[0.35em] text-black/40 mb-4">OUR ECOSYSTEM</div>
+              <div className="text-[clamp(40px,6vw,80px)] font-medium text-black leading-[1.05]" style={{ fontFamily: 'var(--font-heading)' }}>
                 Every system solves<br />a different problem.<br />Together,<br />they solve the business.
               </div>
-              <p className="mt-5 text-[15px] leading-relaxed text-black/60 max-w-[520px]">
+              <p className="mt-5 text-[17px] leading-relaxed text-black/60 max-w-[520px]">
                 We don't build isolated software. Every application shares data, automates work, and scales with every department inside an organization.
               </p>
             </div>
@@ -338,8 +338,8 @@ export default function EcosystemSection() {
           <div className="flex items-center justify-center gap-12" style={{ width: '100vw', height: '100vh' }}>
             <BuildOSPanel local={slideProgress(progress, 0.16, 0.38)} />
             <div style={{ maxWidth: 300, opacity: slideProgress(progress, 0.16, 0.24), transform: `translateY(${(1 - slideProgress(progress, 0.16, 0.24)) * 20}px)` }}>
-              <div className="text-[32px] font-medium text-black leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>BuildOS<br /><span className="text-[16px] font-normal text-black/60">The operating system behind growing businesses.</span></div>
-              <p className="mt-3 text-[13px] leading-relaxed text-black/50">Project management. HR. Finance. Inventory. CRM. Approvals. Reporting. Everything working together.</p>
+              <div className="text-[clamp(28px,4vw,44px)] font-medium text-black leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>BuildOS<br /><span className="text-[17px] font-normal text-black/60">The operating system behind growing businesses.</span></div>
+              <p className="mt-3 text-[17px] leading-relaxed text-black/50">Project management. HR. Finance. Inventory. CRM. Approvals. Reporting. Everything working together.</p>
             </div>
           </div>
 
@@ -347,8 +347,8 @@ export default function EcosystemSection() {
           <div className="flex items-center justify-center gap-12" style={{ width: '100vw', height: '100vh' }}>
             <FreeInvoicePanel local={slideProgress(progress, 0.38, 0.56)} />
             <div style={{ maxWidth: 280, opacity: slideProgress(progress, 0.38, 0.44), transform: `translateY(${(1 - slideProgress(progress, 0.38, 0.44)) * 20}px)` }}>
-              <div className="text-[28px] font-medium text-black leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>FreeInvoice<br /><span className="text-[15px] font-normal text-black/60">Invoices without the friction.</span></div>
-              <p className="mt-3 text-[13px] leading-relaxed text-black/50">Generate. Send. Track. Remind. Get paid. Everything automated.</p>
+              <div className="text-[clamp(28px,4vw,44px)] font-medium text-black leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>FreeInvoice<br /><span className="text-[17px] font-normal text-black/60">Invoices without the friction.</span></div>
+              <p className="mt-3 text-[17px] leading-relaxed text-black/50">Generate. Send. Track. Remind. Get paid. Everything automated.</p>
             </div>
           </div>
 
@@ -356,8 +356,8 @@ export default function EcosystemSection() {
           <div className="flex items-center justify-center gap-12" style={{ width: '100vw', height: '100vh' }}>
             <BuyOpsPanel local={slideProgress(progress, 0.56, 0.74)} />
             <div style={{ maxWidth: 280, opacity: slideProgress(progress, 0.56, 0.62), transform: `translateY(${(1 - slideProgress(progress, 0.56, 0.62)) * 20}px)` }}>
-              <div className="text-[28px] font-medium text-black leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>BuyOps<br /><span className="text-[15px] font-normal text-black/60">Real estate. Without the paperwork.</span></div>
-              <p className="mt-3 text-[13px] leading-relaxed text-black/50">Manage developments. Track sales. Monitor investors. Automate allocation. Visualize growth.</p>
+              <div className="text-[clamp(28px,4vw,44px)] font-medium text-black leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>BuyOps<br /><span className="text-[17px] font-normal text-black/60">Real estate. Without the paperwork.</span></div>
+              <p className="mt-3 text-[17px] leading-relaxed text-black/50">Manage developments. Track sales. Monitor investors. Automate allocation. Visualize growth.</p>
             </div>
           </div>
 
@@ -365,18 +365,18 @@ export default function EcosystemSection() {
           <div className="flex items-center justify-center gap-12" style={{ width: '100vw', height: '100vh' }}>
             <FeedbackOSPanel local={slideProgress(progress, 0.74, 0.88)} />
             <div style={{ maxWidth: 260, opacity: slideProgress(progress, 0.74, 0.80), transform: `translateY(${(1 - slideProgress(progress, 0.74, 0.80)) * 20}px)` }}>
-              <div className="text-[28px] font-medium text-black leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>FeedbackOS<br /><span className="text-[15px] font-normal text-black/60">Listen. Learn. Improve.</span></div>
-              <p className="mt-3 text-[13px] leading-relaxed text-black/50">Collect feedback. Understand customers. Discover patterns. Ship better products.</p>
+              <div className="text-[clamp(28px,4vw,44px)] font-medium text-black leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>FeedbackOS<br /><span className="text-[17px] font-normal text-black/60">Listen. Learn. Improve.</span></div>
+              <p className="mt-3 text-[17px] leading-relaxed text-black/50">Collect feedback. Understand customers. Discover patterns. Ship better products.</p>
             </div>
           </div>
 
           {/* Slide 5 — Final ecosystem */}
           <div className="flex items-center justify-center" style={{ width: '100vw', height: '100vh' }}>
             <div className="text-center" style={{ opacity: slideProgress(progress, 0.88, 0.94), transform: `translateY(${(1 - slideProgress(progress, 0.88, 0.94)) * 20}px)` }}>
-              <div className="text-[40px] font-medium text-black leading-[1.1] mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
+              <div className="text-[clamp(28px,4vw,44px)] font-medium text-black leading-[1.1] mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
                 Different software.<br />One engineering philosophy.
               </div>
-              <p className="text-[15px] text-black/50">Built independently. Designed to work together.</p>
+              <p className="text-[17px] text-black/50">Built independently. Designed to work together.</p>
             </div>
           </div>
         </div>

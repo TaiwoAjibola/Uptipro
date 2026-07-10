@@ -322,13 +322,13 @@ export default function BlueprintSection() {
               transition: 'opacity 0.8s ease',
             }}
           >
-            <div className="text-[11px] uppercase tracking-[0.3em] text-black/50 mb-1">
+            <div className="text-[12px] uppercase tracking-[0.3em] text-black/50 mb-1">
               PROJECT
             </div>
-            <div className="text-[32px] sm:text-[48px] font-medium text-black leading-[1]" style={{ fontFamily: 'var(--font-heading)' }}>
+            <div className="text-[clamp(28px,4vw,44px)] font-medium text-black leading-[1]" style={{ fontFamily: 'var(--font-heading)' }}>
               Blueprint
             </div>
-            <p className="mt-3 text-[15px] leading-relaxed text-black/60" style={{ maxWidth: '420px' }}>
+            <p className="mt-3 text-[17px] leading-relaxed text-black/60" style={{ maxWidth: '420px' }}>
               Every product begins long before a single line of code is written. We map systems, simplify complexity, and design software that scales with the people using it.
             </p>
           </div>
@@ -341,16 +341,16 @@ export default function BlueprintSection() {
               transition: 'opacity 0.8s ease',
             }}
           >
-            {[
-              ['Project', 'Enterprise ERP'],
-              ['Status', 'In Design'],
-              ['Complexity', '128 Modules'],
-            ].map(([k, v]) => (
-              <div key={k as string} className="mb-2">
-                <div className="text-[9px] uppercase tracking-[0.2em] text-black/40">{k}</div>
-                <div className="text-[14px] font-medium text-black">{v}</div>
-              </div>
-            ))}
+              {[
+                ['Project', 'Enterprise ERP'],
+                ['Status', 'In Design'],
+                ['Complexity', '128 Modules'],
+              ].map(([k, v]) => (
+                <div key={k as string} className="mb-2">
+                  <div className="text-[12px] uppercase tracking-[0.2em] text-black/40">{k}</div>
+                  <div className="text-[17px] font-medium text-black">{v}</div>
+                </div>
+              ))}
           </div>
 
           {/* ── Guide lines ── */}
@@ -404,7 +404,7 @@ export default function BlueprintSection() {
                 {/* Label pill */}
                 <div
                   ref={(el) => { labelRefs.current[i] = el; }}
-                  className="rounded-full bg-white px-3 py-1.5 shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-black/5 text-[10px] text-black/70 whitespace-nowrap transition-transform duration-300"
+                  className="rounded-full bg-white px-3 py-1.5 shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-black/5 text-[12px] text-black/70 whitespace-nowrap transition-transform duration-300"
                 >
                   {tag.label}
                 </div>
@@ -421,14 +421,14 @@ export default function BlueprintSection() {
               transition: 'opacity 0.8s ease, transform 0.8s ease',
             }}
           >
-            <div className="text-[9px] uppercase tracking-[0.2em] text-black/40 mb-2">Build Metrics</div>
+            <div className="text-[12px] uppercase tracking-[0.2em] text-black/40 mb-2">Build Metrics</div>
             <div className="flex gap-6">
               {METRICS_DATA.map((m) => (
                 <div key={m.label}>
-                  <div className="text-[22px] font-semibold text-black tabular-nums">
+                  <div className="text-[17px] font-semibold text-black tabular-nums">
                     <AnimatedNumber target={m.target} progress={progress} />
                   </div>
-                  <div className="text-[9px] text-black/50 uppercase tracking-[0.05em]">{m.label}</div>
+                  <div className="text-[12px] text-black/50 uppercase tracking-[0.05em]">{m.label}</div>
                 </div>
               ))}
             </div>
@@ -443,10 +443,10 @@ export default function BlueprintSection() {
               transition: 'opacity 0.8s ease, transform 0.8s ease',
             }}
           >
-            <div className="text-[9px] uppercase tracking-[0.2em] text-black/40 mb-1.5 text-right">Engineering Notes</div>
+            <div className="text-[12px] uppercase tracking-[0.2em] text-black/40 mb-1.5 text-right">Engineering Notes</div>
             <div className="bg-white/70 backdrop-blur rounded-xl border border-black/5 p-3 shadow-sm">
               {NOTES.map((note, i) => (
-                <div key={i} className="flex items-center gap-2 text-[11px] leading-relaxed">
+                <div key={i} className="flex items-center gap-2 text-[12px] leading-relaxed">
                   <span style={{ color: note.done ? '#22c55e' : '#94a3b8', fontFamily: 'serif' }}>
                     {note.done ? '✓' : '○'}
                   </span>

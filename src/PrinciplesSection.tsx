@@ -171,11 +171,11 @@ export default function PrinciplesSection() {
         {/* Intro — fades out in first 10% */}
         <div className="absolute inset-0 flex items-center justify-center text-center px-4" style={{ opacity: clamp(1 - progress / 0.10, 0, 1) }}>
           <div>
-            <div className="text-[11px] uppercase tracking-[0.35em] text-black/40 mb-4">OUR PRINCIPLES</div>
-            <div className="text-[clamp(36px,5vw,64px)] font-medium text-black leading-[0.95] max-w-[760px]" style={{ fontFamily: 'var(--font-heading)' }}>
+            <div className="text-[12px] uppercase tracking-[0.35em] text-black/40 mb-4">OUR PRINCIPLES</div>
+            <div className="text-[clamp(40px,6vw,80px)] font-medium text-black leading-[0.95] max-w-[760px]" style={{ fontFamily: 'var(--font-heading)' }}>
               Every product is guided<br />by the same beliefs.
             </div>
-            <p className="mt-4 text-[14px] text-black/60 max-w-[560px] mx-auto">
+            <p className="mt-4 text-[17px] text-black/60 max-w-[560px] mx-auto">
               Technology changes. Design trends change. Great systems don't. Everything we build is shaped by a small set of principles that remain true regardless of language, framework or platform.
             </p>
           </div>
@@ -204,7 +204,7 @@ export default function PrinciplesSection() {
                     <div className="text-[28px] font-medium text-black mt-[-8px] mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
                       {p.title}
                     </div>
-                    <p className="text-[14px] leading-[1.7] text-black/60">{p.desc}</p>
+                    <p className="text-[17px] leading-[1.7] text-black/60">{p.desc}</p>
                   </div>
                   {/* Right: animation */}
                   <div className="flex-1" style={{ opacity: Math.min(lp * 2, 1), transform: `translateY(${(1 - Math.min(lp * 2, 1)) * 20}px)` }}>

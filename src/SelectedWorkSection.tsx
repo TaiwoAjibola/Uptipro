@@ -97,11 +97,11 @@ export default function SelectedWorkSection() {
           className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
           style={{ opacity: clamp(1 - progress / 0.04, 0, 1) }}
         >
-          <div className="text-[11px] uppercase tracking-[0.35em] text-black/40 mb-4">SELECTED WORK</div>
-          <div className="text-[clamp(36px,5vw,64px)] font-medium text-black leading-[1.05] max-w-[600px]" style={{ fontFamily: 'var(--font-heading)' }}>
+          <div className="text-[12px] uppercase tracking-[0.35em] text-black/40 mb-4">SELECTED WORK</div>
+          <div className="text-[clamp(40px,6vw,80px)] font-medium text-black leading-[1.05] max-w-[600px]" style={{ fontFamily: 'var(--font-heading)' }}>
             Software that solved<br />real problems.
           </div>
-          <p className="mt-4 text-[15px] text-black/60 max-w-[480px]">
+          <p className="mt-4 text-[17px] text-black/60 max-w-[480px]">
             Every product starts with a challenge. Every challenge becomes an opportunity to rethink how people work.
           </p>
         </div>
@@ -132,25 +132,25 @@ export default function SelectedWorkSection() {
                 {/* Left column */}
                 <div className="w-[420px] shrink-0 mr-12" style={{ opacity: titleOpacity }}>
                   <div className="text-[64px] font-medium text-black/[0.06] leading-[0.8] mb-1">{c.num}</div>
-                  <div className="text-[32px] font-medium text-black mb-4" style={{ fontFamily: 'var(--font-heading)', transform: `translateY(${(1 - titleOpacity) * 12}px)` }}>
+                  <div className="text-[clamp(28px,4vw,44px)] font-medium text-black mb-4" style={{ fontFamily: 'var(--font-heading)', transform: `translateY(${(1 - titleOpacity) * 12}px)` }}>
                     {c.name}
                   </div>
 
                   <div className="mb-4" style={{ opacity: challengeOpacity, transform: `translateY(${(1 - challengeOpacity) * 10}px)` }}>
-                    <div className="text-[9px] uppercase tracking-[0.2em] text-black/40 mb-1.5">Challenge</div>
-                    <p className="text-[13px] leading-[1.6] text-black/70">{c.challenge}</p>
+                    <div className="text-[12px] uppercase tracking-[0.2em] text-black/40 mb-1.5">Challenge</div>
+                    <p className="text-[17px] leading-[1.6] text-black/70">{c.challenge}</p>
                   </div>
 
                   <div className="mb-4" style={{ opacity: solutionOpacity, transform: `translateY(${(1 - solutionOpacity) * 10}px)` }}>
-                    <div className="text-[9px] uppercase tracking-[0.2em] text-black/40 mb-1.5">Solution</div>
-                    <p className="text-[13px] leading-[1.6] text-black/70">{c.solution}</p>
+                    <div className="text-[12px] uppercase tracking-[0.2em] text-black/40 mb-1.5">Solution</div>
+                    <p className="text-[17px] leading-[1.6] text-black/70">{c.solution}</p>
                   </div>
 
                   <div style={{ opacity: impactOpacity, transform: `translateY(${(1 - impactOpacity) * 10}px)` }}>
-                    <div className="text-[9px] uppercase tracking-[0.2em] text-black/40 mb-1.5">Impact</div>
+                    <div className="text-[12px] uppercase tracking-[0.2em] text-black/40 mb-1.5">Impact</div>
                     <div className="flex flex-col gap-1">
                       {c.impact.map((item) => (
-                        <div key={item} className="flex items-center gap-2 text-[12px] text-black/70">
+                        <div key={item} className="flex items-center gap-2 text-[17px] text-black/70">
                           <span className="w-1.5 h-1.5 rounded-full" style={{ background: c.metrics.color }} />
                           {item}
                         </div>
@@ -163,7 +163,7 @@ export default function SelectedWorkSection() {
                     {c.metrics.items.map(([l, v]) => (
                       <div key={l as string}>
                         <div className="text-[18px] font-semibold text-black">{v}</div>
-                        <div className="text-[8px] uppercase tracking-[0.1em] text-black/40">{l}</div>
+                        <div className="text-[12px] uppercase tracking-[0.1em] text-black/40">{l}</div>
                       </div>
                     ))}
                   </div>
@@ -238,10 +238,10 @@ export default function SelectedWorkSection() {
           style={{ opacity: clamp((progress - 0.92) / 0.08, 0, 1) }}
         >
           <div>
-            <div className="text-[clamp(28px,4vw,52px)] font-medium text-black leading-[1.1] mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
+            <div className="text-[clamp(28px,4vw,44px)] font-medium text-black leading-[1.1] mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
               Great software isn't measured by features.<br />It's measured by how effortlessly people use it.
             </div>
-            <p className="text-[14px] text-black/50 max-w-[560px] mx-auto">
+            <p className="text-[17px] text-black/50 max-w-[560px] mx-auto">
               Every screen has a purpose. Every interaction solves a problem. Every product begins with understanding people first.
             </p>
           </div>

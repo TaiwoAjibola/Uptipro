@@ -345,11 +345,11 @@ export default function SystemsAlive() {
               className="absolute top-10 left-4 z-20"
               style={{ opacity: clamp((progress - 0.08) / 0.10, 0, 1) }}
             >
-              <div className="text-[9px] uppercase tracking-[0.2em] text-[#2f6df6] font-semibold mb-1">SYSTEM ONLINE</div>
-              <div className="text-[clamp(24px,3vw,42px)] font-medium text-black leading-[1.05] max-w-[560px]" style={{ fontFamily: 'var(--font-heading)' }}>
+              <div className="text-[12px] uppercase tracking-[0.2em] text-[#2f6df6] font-semibold mb-1">SYSTEM ONLINE</div>
+              <div className="text-[clamp(28px,4vw,44px)] font-medium text-black leading-[1.05] max-w-[560px]" style={{ fontFamily: 'var(--font-heading)' }}>
                 From sketches...<br />to software people actually use.
               </div>
-              <p className="mt-3 text-[14px] leading-[1.7] text-black/60 max-w-[520px]">
+              <p className="mt-3 text-[17px] leading-[1.7] text-black/60 max-w-[520px]">
                 Ideas are only valuable when they become reliable systems. Every workflow. Every interaction. Every dashboard. Every automation. Designed to solve real operational problems while remaining intuitive for the people who use them.
               </p>
             </div>
@@ -525,7 +525,7 @@ export default function SystemsAlive() {
             {SIDE_NOTES.map((note) => (
               <div
                 key={note}
-                className="px-3 py-1.5 rounded-lg text-[10px] text-black/60 border border-black/[0.04]"
+                className="px-3 py-1.5 rounded-lg text-[12px] text-black/60 border border-black/[0.04]"
                 style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(8px)' }}
               >
                 {note}

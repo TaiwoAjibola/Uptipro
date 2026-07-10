@@ -231,7 +231,7 @@ function FloatingCard({ card, delay }: { card: (typeof FLOATING_CARDS)[number]; 
   return (
     <div
       ref={ref}
-      className="absolute rounded-3xl border border-black/[0.06] bg-white p-6 shadow-[0_20px_70px_rgba(0,0,0,0.08)] will-change-transform"
+      className="absolute rounded-[20px] border border-black/[0.06] bg-white p-6 shadow-[0_20px_70px_rgba(0,0,0,0.08)] will-change-transform"
       style={{
         width: card.w,
         height: card.h,
@@ -268,16 +268,16 @@ export default function WhatWeBuild() {
 
   return (
     <section className="relative flex items-center justify-center overflow-hidden bg-[#EDEEF5] px-6 py-28 sm:px-8" style={{ minHeight: '110vh' }}>
-      <div className="mx-auto grid w-full max-w-[1500px] grid-cols-1 items-center gap-[60px] px-0 md:grid-cols-[5fr_7fr] md:gap-[90px] md:px-12">
+      <div className="mx-auto grid w-full max-w-[1500px] grid-cols-1 items-center gap-16 px-0 md:grid-cols-[5fr_7fr] md:gap-24 md:px-12">
         {/* Copy */}
         <div ref={textRef} className="md:order-1">
           <p
-            className="mb-7 text-[13px] font-semibold uppercase tracking-[0.32em]"
+            className="mb-7 text-[12px] font-semibold uppercase tracking-[0.32em]"
             style={{
               color: '#000',
               opacity: step >= 1 ? 0.45 : 0,
               transform: step >= 1 ? 'translateY(0)' : 'translateY(24px)',
-              transition: 'opacity 0.8s ease, transform 0.8s ease',
+              transition: 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)',
             }}
           >
             What we build
@@ -285,10 +285,10 @@ export default function WhatWeBuild() {
           <h2
             className="max-w-[580px] font-medium leading-[0.95]"
             style={{
-              fontSize: 'clamp(42px, 5vw, 82px)',
+              fontSize: 'clamp(40px, 6vw, 80px)',
               opacity: step >= 2 ? 1 : 0,
               transform: step >= 2 ? 'translateY(0)' : 'translateY(24px)',
-              transition: 'opacity 0.8s ease, transform 0.8s ease',
+              transition: 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)',
             }}
           >
             Not websites.
@@ -296,12 +296,12 @@ export default function WhatWeBuild() {
             Complete digital businesses.
           </h2>
           <p
-            className="mt-9 max-w-[540px] text-xl leading-relaxed"
+            className="mt-8 max-w-[540px] text-[17px] leading-relaxed"
             style={{
               color: '#555',
               opacity: step >= 3 ? 1 : 0,
               transform: step >= 3 ? 'translateY(0)' : 'translateY(24px)',
-              transition: 'opacity 0.8s ease, transform 0.8s ease',
+              transition: 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)',
             }}
           >
             We design and engineer software that powers real businesses — from
@@ -312,11 +312,11 @@ export default function WhatWeBuild() {
             {CAPABILITIES.map((item, idx) => (
               <li
                 key={item}
-                className="flex items-center gap-[18px] py-3 text-[15px]"
+                className="flex items-center gap-4 py-3 text-[17px]"
                 style={{
                   opacity: step >= 4 + idx ? 1 : 0,
                   transform: step >= 4 + idx ? 'translateY(0)' : 'translateY(16px)',
-                  transition: `opacity 0.6s ease, transform 0.6s ease`,
+                  transition: `opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)`,
                   transitionDelay: `${idx * 60}ms`,
                 }}
               >
@@ -338,7 +338,7 @@ export default function WhatWeBuild() {
         {/* Mobile fallback */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:hidden">
           {FLOATING_CARDS.map((card) => (
-            <div key={card.id} className="rounded-2xl border border-black/[0.06] bg-white p-5 shadow-[0_12px_40px_rgba(0,0,0,0.06)]">
+            <div key={card.id} className="rounded-[20px] border border-black/[0.06] bg-white p-6 shadow-[0_12px_40px_rgba(0,0,0,0.06)]">
               <div className="mb-3 flex items-center gap-1.5 text-[8px] uppercase tracking-[0.16em] text-black/40">
                 <span className="h-1 w-1 rounded-full bg-black/25" />
                 {card.label}
